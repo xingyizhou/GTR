@@ -1,0 +1,58 @@
+_BASE_: "Base-CenterNet2.yaml"
+MODEL:
+  FREEZE_TYPE: BackboneBottomup
+  META_ARCHITECTURE: "GTRRCNN"
+  BACKBONE:
+    NAME: "build_p67_res2net_fpn_backbone"
+  WEIGHTS: "output/C2_LVISCOCO_DR2101_4x.pth"
+  RESNETS:
+    DEPTH: 101
+    WIDTH_PER_GROUP: 26
+    DEFORM_ON_PER_STAGE: [False, False, True, True] # on Res4, Res5
+    DEFORM_MODULATED: True
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.12, 57.375]
+  CENTERNET:
+    USE_DEFORMABLE: True
+  ROI_BOX_HEAD:
+    USE_SIGMOID_CE: True
+    USE_FED_LOSS: True
+    DELAY_CLS: True
+  ROI_HEADS:
+    IN_FEATURES: ["p3"]
+    NAME: GTRROIHeads
+    PROPOSAL_APPEND_GT: False
+  ASSO_ON: True
+  ASSO_HEAD:
+    ASSO_THRESH: 0.1
+    ASSO_THRESH_TEST: 0.4
+    ASSO_WEIGHT: 1.0
+    NO_POS_EMB: True
+SOLVER:
+  USE_CUSTOM_SOLVER: True
+  MAX_ITER: 45000
+  LR_SCHEDULER_NAME: "WarmupCosineLR"
+  BASE_LR: 0.00005
+  OPTIMIZER: ADAMW
+  IMS_PER_BATCH: 4
+  CLIP_GRADIENTS:
+    ENABLED: True
+    CLIP_TYPE: "full_model"
+    CLIP_VALUE: 0.1
+    NORM_TYPE: 2.0
+  BACKBONE_MULTIPLIER: 0.1
+INPUT:
+  FORMAT: RGB
+  CUSTOM_AUG: EfficientDetResizeCrop
+  TRAIN_SIZE: 896
+  VIDEO:
+    TRAIN_LEN: 8
+    TEST_LEN: 16
+VIDEO_INPUT: True
+DATASETS:
+  TRAIN: ("lvis_v1_train+coco_box",)
+  TEST: ('tao_val_v1',)
+DATALOADER:
+  SAMPLER_TRAIN: "TrainingSampler"
+OUTPUT_DIR: "./output/GTR-TAO/auto"
+FIND_UNUSED_PARAM: True

@@ -1,0 +1,6 @@
+opencv-python
+timm
+lvis
+lap
+scipy
+git+https://github.com/TAO-Dataset/tao
