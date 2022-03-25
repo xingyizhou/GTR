@@ -2,9 +2,9 @@
 
 <p align="center"> <img src='docs/GTR_teaser.jpg' align="center" height="300px"> </p>
 
-> [**Global Tracking Transformers**](http://arxiv.org/abs/xxxx.xxxxx),               
+> [**Global Tracking Transformers**](http://arxiv.org/abs/2203.13250),               
 > Xingyi Zhou, Tianwei Yin, Vladlen Koltun, Philipp Kr&auml;henb&uuml;hl,                 
-> *CVPR 2022 ([arXiv xxxx.xxxxx](http://arxiv.org/abs/xxxx.xxxxx))*         
+> *CVPR 2022 ([arXiv 2203.13250](http://arxiv.org/abs/2203.13250))*         
 
 
 ## Features
@@ -24,7 +24,7 @@ See [installation instructions](docs/INSTALL.md).
 We use the default detectron2 [demo interface](https://github.com/facebookresearch/detectron2/blob/main/GETTING_STARTED.md). For example, to run [TAO model](configs/GTR_TAO_DR2101.yaml) on an example video (video source: TAO/YFCC100M dataset), download the [model](https://drive.google.com/file/d/1TqkLpFZvOMY5HTTaAWz25RxtLHdzQ-CD/view?usp=sharing) and run
 
 ~~~
-python demo.py --config-file configs/GTR_TAO_DR2101.yaml --video-input docs/yfcc_v_acef1cb6d38c2beab6e69e266e234f.mp4 --output output/demo_yfcc.mp4 --opts MODEL.WEIGHTS GTR_models/GTR_TAO_DR2101.pth
+python demo.py --config-file configs/GTR_TAO_DR2101.yaml --video-input docs/yfcc_v_acef1cb6d38c2beab6e69e266e234f.mp4 --output output/demo_yfcc.mp4 --opts MODEL.WEIGHTS models/GTR_TAO_DR2101.pth
 ~~~
 
 If setup correctly, the output on `output/demo_yfcc.mp4` should look like:

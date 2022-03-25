@@ -143,6 +143,9 @@ if __name__ == "__main__":
                 output_fname = os.path.join(args.output, basename)
                 output_fname = os.path.splitext(output_fname)[0] + file_ext
             else:
+                folder_name = os.path.dirname(args.output)
+                if not os.path.exists(folder_name):
+                    os.makedirs(folder_name)
                 output_fname = args.output
             # assert not os.path.isfile(output_fname), output_fname
             output_file = cv2.VideoWriter(
@@ -168,3 +171,4 @@ if __name__ == "__main__":
             output_file.release()
         else:
             cv2.destroyAllWindows()
+    print('Done')
