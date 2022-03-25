@@ -11,7 +11,7 @@ inference_test_output
 
 
 *.png
-*.json
+# *.json
 *.diff
 
 # compilation and distribution
@@ -53,6 +53,7 @@ _darcs
 /datasets/*
 !/datasets/*.*
 !/datasets/README.md
+!/datasets/metadata/
 /projects/*/datasets
 /models
 /snippet
