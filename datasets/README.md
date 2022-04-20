@@ -34,6 +34,14 @@ mot/
             ...
 ```
 
+Then create sim-link to facilitate our evaluation script
+
+```
+cd datasets/mot/MOT17/
+ln -s train trainval
+cd ../../../
+```
+
 Then create the half-half train/ validation split and convert the annotation format
 
 ```

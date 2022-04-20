@@ -48,7 +48,7 @@ VIDEO_TEST:
   WITH_IOU: True
   NOT_MULT_THRESH: True
 DATASETS:
-  TRAIN: ("mot17_fulltrain","crowdhuman_amodal_train",)
+  TRAIN: ("mot17_fulltrain","crowdhuman_train",)
   TEST: ("mot17_test",)
 FIND_UNUSED_PARAM: True
 DATALOADER:

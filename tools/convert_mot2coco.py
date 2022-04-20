@@ -9,9 +9,9 @@ OUT_PATH = DATA_PATH + 'annotations/'
 SPLITS = ['train_half', 'val_half']
 # SPLITS = ['train', 'test']
 HALF_VIDEO = True
-CREATE_SPLITTED_ANN = False
+CREATE_SPLITTED_ANN = True
 CREATE_SPLITTED_DET = True
-SAVE_JSON = False
+SAVE_JSON = True
 
 if __name__ == '__main__':
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     for seq in sorted(seqs):
       if '.DS_Store' in seq:
         continue
-      if 'mot17' in DATA_PATH and (split != 'test' and not ('FRCNN' in seq)):
+      if 'MOT17' in DATA_PATH and (split != 'test' and not ('FRCNN' in seq)):
         continue
       video_cnt += 1
       out['videos'].append({
