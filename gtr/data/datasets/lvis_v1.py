@@ -8,6 +8,11 @@ from detectron2.structures import BoxMode
 from fvcore.common.file_io import PathManager
 from detectron2.data import DatasetCatalog, MetadataCatalog
 from detectron2.data.datasets.lvis_v1_categories import LVIS_CATEGORIES
+try:
+    from detectron2.data.datasets.lvis_v1_category_image_count import \
+        LVIS_CATEGORY_IMAGE_COUNT as LVIS_V1_CATEGORY_IMAGE_COUNT
+except:
+    LVIS_V1_CATEGORY_IMAGE_COUNT = None
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +106,9 @@ def get_lvis_v1_instances_meta():
     # Ensure that the category list is sorted by id
     lvis_categories = sorted(LVIS_CATEGORIES, key=lambda x: x["id"])
     thing_classes = [k["synonyms"][0] for k in lvis_categories]
-    meta = {"thing_classes": thing_classes}
+    meta = {
+        "thing_classes": thing_classes, 
+        "class_image_count": LVIS_V1_CATEGORY_IMAGE_COUNT}
     return meta
 
 _PREDEFINED_SPLITS_LVIS_V1 = {
