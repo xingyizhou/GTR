@@ -4,7 +4,7 @@ import torch
 
 from detectron2.data import MetadataCatalog
 from detectron2.engine.defaults import DefaultPredictor
-from detectron2.utils.video_visualizer import VideoVisualizer, random_colors
+from detectron2.utils.video_visualizer import VideoVisualizer, random_color
 from detectron2.utils.video_visualizer import _create_text_labels
 from detectron2.utils.visualizer import ColorMode, Visualizer
 
@@ -23,7 +23,8 @@ class TrackingVisualizer(VideoVisualizer):
         self._assigned_colors = {}
         self._max_num_instances = 10000
         self._num_colors = 74
-        self._color_pool = random_colors(self._num_colors, rgb=True, maximum=1)
+        self._color_pool = [random_color(rgb=True, maximum=1) \
+            for _ in range(self._num_colors)]
         self.color_idx = 0
 
 
