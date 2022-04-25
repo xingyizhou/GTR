@@ -35,7 +35,7 @@ from detectron2.data.dataset_mapper import DatasetMapper
 from detectron2.solver import build_optimizer
 from detectron2.utils.logger import setup_logger
 
-sys.path.insert(0, 'third_party/CenterNet2/projects/CenterNet2/')
+sys.path.insert(0, 'third_party/CenterNet2/')
 from centernet.config import add_centernet_config
 
 from gtr.config import add_gtr_config
