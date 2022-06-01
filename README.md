@@ -23,6 +23,7 @@ See [installation instructions](docs/INSTALL.md).
 
 Run our demo using Colab (no GPU needed): [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1vW1sSQc0daGSNjdBXdD-wFEPKT27qwDe)
 
+Try Replicate web demo here [![Replicate](https://replicate.com/xingyizhou/gtr/badge)](https://replicate.com/xingyizhou/gtr)
 
 We use the default detectron2 [demo interface](https://github.com/facebookresearch/detectron2/blob/main/GETTING_STARTED.md). For example, to run [TAO model](configs/GTR_TAO_DR2101.yaml) on an example video (video source: TAO/YFCC100M dataset), download the [model](https://drive.google.com/file/d/1TqkLpFZvOMY5HTTaAWz25RxtLHdzQ-CD/view?usp=sharing) and run
 
