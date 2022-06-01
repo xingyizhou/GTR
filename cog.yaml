@@ -1,0 +1,23 @@
+build:
+  cuda: "10.1"
+  gpu: true
+  python_version: "3.8"
+  system_packages:
+    - "libgl1-mesa-glx"
+    - "libglib2.0-0"
+  python_packages:
+    - "numpy==1.21.1"
+    - "ipython==7.21.0"
+    - "torch==1.8.1"
+    - "torchvision==0.9.1"
+    - "opencv-python==4.5.5.64"
+    - "timm==0.5.4"
+    - "lvis==0.5.3"
+    - "scipy==1.8.1"
+    - "imageio-ffmpeg==0.4.7"
+    - "git+https://github.com/TAO-Dataset/tao"
+  run:
+    - pip install lap
+    - pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cu101/torch1.8/index.html
+
+predict: "predict.py:Predictor"
